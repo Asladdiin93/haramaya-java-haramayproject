@@ -1,0 +1,6 @@
+Asladdiin|IT/0172/15|IT|Java Programming
+Amina|CS/2024/045|CS|Data Structures
+Yusuf|IT/2023/112|IT|Database Systems
+Hawa|SE/2024/078|SE|Software Engineering
+ibsa||os|cjf
+Abdul|016363|It|jaca
