@@ -1,50 +1,33 @@
-import java.util.*;
-
-public class Student extends Person {  // ✅ INHERITANCE
+public class Student {
+    private String name;
+    private String id;
     private String department;
-    private List<Course> courses;
+    private String course;
 
-    public Student(String name, String id, String department) {
-        super(name, id);  // ✅ call parent constructor
+    public Student(String name, String id, String department, String course) {
+        this.name = name;
+        this.id = id;
         this.department = department;
-        this.courses = new ArrayList<>();
+        this.course = course;
     }
 
-    // Student-specific getters/setters
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
     public String getDepartment() { return department; }
     public void setDepartment(String department) { this.department = department; }
-    public List<Course> getCourses() { return new ArrayList<>(courses); }
 
-    // Composition: course management
-    public void addCourse(Course course) {
-        if (course != null && !courses.contains(course)) {
-            courses.add(course);
-        }
-    }
-
-    public int getTotalCredits() {
-        return courses.stream().mapToInt(Course::getCredits).sum();
-    }
-
-    // ✅ Override for polymorphism
-    @Override
-    public String getRole() { return "Student"; }
+    public String getCourse() { return course; }
+    public void setCourse(String course) { this.course = course; }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("🎓 ").append(name).append(" | ID: ").append(id)
-          .append(" | Dept: ").append(department)
-          .append(" | Credits: ").append(getTotalCredits());
-
-        if (courses.isEmpty()) {
-            sb.append("\n   📚 Courses: (none)");
-        } else {
-            sb.append("\n   📚 Courses:");
-            for (Course c : courses) {
-                sb.append("\n     - ").append(c);
-            }
-        }
-        return sb.toString();
+        return "📌 ID: " + id + 
+               "\n   Name: " + name + 
+               "\n   Dept: " + department + 
+               "\n   Course: " + course;
     }
 }
